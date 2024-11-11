@@ -31,4 +31,5 @@ public class Hippodrome {
                 .max(Comparator.comparing(Horse::getDistance))
                 .get();
     }
+
 }

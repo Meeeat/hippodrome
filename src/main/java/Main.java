@@ -31,4 +31,5 @@ public class Main {
                 .forEach(System.out::println);
         System.out.println("\n".repeat(10));
     }
+
 }
