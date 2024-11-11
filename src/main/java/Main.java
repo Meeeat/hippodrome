@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
         List<Horse> horses = List.of(
@@ -18,6 +18,7 @@ public class Main {
                 new Horse("Cherry", 3)
         );
         Hippodrome hippodrome = new Hippodrome(horses);
+        LOGGER.info("Race start. Number of horses: {}", hippodrome.getHorses().size());
 
         for (int i = 0; i < 100; i++) {
             hippodrome.move();
@@ -27,6 +28,9 @@ public class Main {
 
         String winnerName = hippodrome.getWinner().getName();
         System.out.println(winnerName + " wins!");
+
+        Horse winner = hippodrome.getWinner();
+        LOGGER.info("Race has end. Winner horse: {}", winner.getName());
     }
 
     private static void watch(Hippodrome hippodrome) throws Exception {
