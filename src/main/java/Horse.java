@@ -1,10 +1,11 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 import static java.util.Objects.isNull;
 
 public class Horse {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Horse.class);
+    private static final Logger LOGGER = LogManager.getLogger(Horse.class);
 
     private final String name;
     private final double speed;
@@ -19,11 +20,11 @@ public class Horse {
             throw new IllegalArgumentException("Name cannot be blank.");
         }
         if (speed < 0) {
-            LOGGER.error("Speed is negative");
+            LOGGER.error("Speed for [{}] is negative", name);
             throw new IllegalArgumentException("Speed cannot be negative.");
         }
         if (distance < 0) {
-            LOGGER.error("Distance is negative");
+            LOGGER.error("Distance for [{}] is negative", name);
             throw new IllegalArgumentException("Distance cannot be negative.");
         }
 
